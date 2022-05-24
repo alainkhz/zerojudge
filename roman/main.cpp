@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <cmath>
 using namespace std;
 
 int main()
@@ -46,5 +46,29 @@ int main()
     }
     cout<<n1<<endl;
     cout<<n2;
+    int c= abs(n2-n1);
+    int c2=c;
+    int nt[13]={1000,900,500,400,100,90,50,40,10,9,5,4,1};
+    string st[13]={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+    string s="";
+    for (int i=0;i<13;i++)
+        {
+        if(c%nt[i]!=0)
+        {
+            for(int j=0;j<c/nt[i];j++)
+                s+=st[i];
+        }
+        else if(nt[i]==1)
+            {
+                for(int j=0;j<c/nt[i];j++)
+                    s+=st[i];
+            }
+        c = c%nt[i];
+        }
+    if(c2==0)
+        cout<<"zero";
+    else
+        cout<<s;
+
 
 }
